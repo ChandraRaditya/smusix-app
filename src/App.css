@@ -1,0 +1,191 @@
+* {
+  box-sizing: border-box;
+  font-family: 'Montserrat';
+}
+
+body {
+  background-color: #DBDBDB;
+}
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.search-container {
+  width: 1080px;
+  margin: 0 auto;
+}
+
+.search-container form {
+  /* backgryound-color: red; */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.top {
+  background-color: #C5C0C0;
+  width: 1005px;
+  height: 171px;
+  padding: 3px 71px;
+  margin: 0 auto;
+}
+
+form {
+  display: flex;
+  flex-direction: row;
+}
+
+h1 {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+}
+
+form div {
+  margin-right: 131.67px;
+}
+
+textarea {
+  width: 281.85px;
+  height: 49px;
+}
+
+textarea,
+input {
+  margin-top: 9px;
+}
+
+form p {
+  font-size: 12px;
+}
+
+form button {
+  width: 134.75px;
+  height: 43px;
+  background: #2E9966;
+  border: 1px solid #0CA47F;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  margin-top: 44px;
+  font-weight: 600;
+  color: white;
+}
+
+.tracks {
+  width: 1080px;
+  height: 789px;
+  margin: 52px auto 0;
+  padding: 5px 46px;
+}
+
+.tracks-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.tracks h2 {
+  font-weight: 600;
+  font-size: 30px;
+  margin: 0;
+  padding-bottom: 6px;
+  border-bottom: 1px solid grey;
+}
+
+.track-item {
+  background-color: white;
+  margin-top: 42px;
+  width: 294px;
+  height: 320px;
+  display: flex;
+  flex-direction: column;
+  border: 0.3px solid #000000;
+  box-shadow: 3px 4px 7px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  padding: 0 19px;
+}
+
+.track-item img {
+  width: 241px;
+  height: 154px;
+  display: inline-block;
+  margin-top: 19px;
+  object-fit: cover;
+  align-self: center;
+  border-radius: 10px;
+}
+
+.track-item button {
+  background-color: #2E9966;
+  align-self: center;
+  padding: 6px;
+  text-align: center;
+  height: 28px;
+  width: 215px;
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: 10px;
+  color: white;
+}
+
+.title {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 22px;
+  color: #000000;
+  margin: 25px 0 0 0;
+}
+
+.artist {
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 15px;
+  color: #000000;
+}
+
+.btn-auth {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
