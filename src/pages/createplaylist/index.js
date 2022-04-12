@@ -141,13 +141,11 @@ function CreatePlaylist() {
     });
 
     const handleTitle = (e) => {
-        // console.log(e)
         const { name, value } = e.target
         setForm({ ...form, [name]: value })
     }
 
     const handleDescription = (e) => {
-        // console.log(e)
         const { name, value } = e.target
         setForm({ ...form, [name]: value })
     }
