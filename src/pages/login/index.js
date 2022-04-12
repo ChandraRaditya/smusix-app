@@ -3,11 +3,11 @@ import { useState, useEffect } from 'react';
 
 function Login() {
     const [isLogin, setIsLogin] = useState(() => {
-        const saved = localStorage.getItem("isLogin");
+        const saved = sessionStorage.getItem("isLogin");
         const initialValue = JSON.parse(saved);
         return saved ? initialValue : false
     });
-    const currentLogin = JSON.parse(localStorage.getItem("isLogin"))
+    const currentLogin = JSON.parse(sessionStorage.getItem("isLogin"))
 
 
     useEffect(() => {
@@ -28,12 +28,12 @@ function Login() {
     const handleLoginButton = () => {
         if (currentLogin) {
             setIsLogin(false)
-            localStorage.setItem("isLogin", JSON.stringify(false))
+            sessionStorage.setItem("isLogin", JSON.stringify(false))
             window.location.reload();
         }
         else {
             setIsLogin(true)
-            localStorage.setItem("isLogin", JSON.stringify(true))
+            sessionStorage.setItem("isLogin", JSON.stringify(true))
             requestAuthorization()
         }
     }

@@ -9,7 +9,7 @@ import Login from "./pages/login/index";
 import CreatePlaylist from "./pages/createplaylist/index"
 
 function AppRouter() {
-    const currentLogin = JSON.parse(localStorage.getItem("isLogin"))
+    const currentLogin = JSON.parse(sessionStorage.getItem("isLogin"))
 
     return (
         <Router>

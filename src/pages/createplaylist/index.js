@@ -9,6 +9,10 @@ function CreatePlaylist() {
     const [token, setToken] = useState('');
     const [tracks, setTrack] = useState([]);
     const [isIdExist, setIsIdExist] = useState([]);
+    const [form, setForm] = useState({
+        title: '',
+        description: ''
+    })
     const history = useHistory();
 
     useEffect(() => {
@@ -110,13 +114,15 @@ function CreatePlaylist() {
 
     const handleCreatePlaylist = async (a) => {
         a.preventDefault();
-        const title = a.target[0].value;
-        const description = a.target[1].value;
-        if (title.length <= 10) {
+        const titleValue = a.target[0].value;
+        const descriptionValue = a.target[1].value;
+        if (titleValue.length <= 10) {
             window.alert('minimum 10 characters for title')
         }
         else {
-            await createPlaylist(title, description);
+            await createPlaylist(titleValue, descriptionValue);
+            window.alert(`successfully create ${form.title} playlist `)
+            setForm({ ...form, title: '', description: '' })
         }
     }
 
@@ -134,9 +140,27 @@ function CreatePlaylist() {
         )
     });
 
+    const handleTitle = (e) => {
+        // console.log(e)
+        const { name, value } = e.target
+        setForm({ ...form, [name]: value })
+    }
+
+    const handleDescription = (e) => {
+        // console.log(e)
+        const { name, value } = e.target
+        setForm({ ...form, [name]: value })
+    }
+
     return (
         <div className="App">
-            <Playlist getPlaylist={handleCreatePlaylist} />
+            <Playlist
+                getPlaylist={handleCreatePlaylist}
+                handleTitle={handleTitle}
+                handleDescription={handleDescription}
+                title={form.title}
+                description={form.description}
+            />
             <div className='search-container'>
                 <form onSubmit={(event) => { handelSearchTrack(event) }}>
                     <input type="text" />
