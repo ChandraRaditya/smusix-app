@@ -3,6 +3,7 @@ import './App.css';
 import { Provider } from "react-redux";
 import store from './store';
 import AppRouter from './route';
+import CssBaseline from '@mui/material/CssBaseline';
 
 function App() {
   return (

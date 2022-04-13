@@ -50,13 +50,27 @@ body {
 .search-container {
   width: 1080px;
   margin: 0 auto;
+  margin-top: 20px;
+}
+
+.search-container .search-btn {
+  background-color: green;
+  color: white;
+  margin-left: 10px;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.search-container input {
+  height: 40px;
+  border-radius: 5px;
 }
 
 .search-container form {
-  /* backgryound-color: red; */
   display: flex;
   flex-direction: row;
   justify-content: center;
+  align-items: center;
 }
 
 .top {

@@ -1,10 +1,4 @@
-// import { useState } from "react";
-
 function Playlist(props) {
-    // const [form, setForm] = useState({
-    //     title: '',
-    //     description: ''
-    // })
     return (
         <div className="top">
             <h1>Create Playlist</h1>

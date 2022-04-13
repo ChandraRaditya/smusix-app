@@ -4,6 +4,8 @@ import Track from '../../components/track/index';
 import Playlist from '../../components/playlist/index';
 import axios from 'axios';
 import { useHistory } from "react-router-dom";
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
 
 function CreatePlaylist() {
     const [token, setToken] = useState('');
@@ -162,7 +164,8 @@ function CreatePlaylist() {
             <div className='search-container'>
                 <form onSubmit={(event) => { handelSearchTrack(event) }}>
                     <input type="text" />
-                    <input type="submit" value="Submit" id="submitButton" />
+                    <Button className='search-btn' size="small" type='submit'>Search</Button>
+
                 </form>
             </div>
             <div className="tracks">
