@@ -4,7 +4,6 @@ import Track from '../../components/track/index';
 import Playlist from '../../components/playlist/index';
 import axios from 'axios';
 import { useHistory } from "react-router-dom";
-import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 
 function CreatePlaylist() {
@@ -15,6 +14,7 @@ function CreatePlaylist() {
         title: '',
         description: ''
     })
+    const [searchText, setSearchText] = useState('')
     const history = useHistory();
 
     useEffect(() => {
@@ -28,10 +28,15 @@ function CreatePlaylist() {
 
         const tokenContent = params.access_token
         setToken(tokenContent);
+        // sessionStorage.setItem("token", JSON.stringify(tokenContent))
 
         history.push("/create-playlist");
 
     }, []);
+
+    const handleSearchOnChange = (event) => {
+        setSearchText(event.target.value)
+    }
 
     const addTrack = async (id, playlist) => {
         const res = await axios({
@@ -77,10 +82,35 @@ function CreatePlaylist() {
     }
 
     const handelSearchTrack = async (a) => {
+        console.log('ini token', token)
         a.preventDefault();
-        const inputValue = a.target[0].value;
-        await getArtists(inputValue);
+        // const inputValue = a.target[0].value;
+        const inputValue = searchText
+        const text = inputValue.toLowerCase();
+        if (text.length > 1) {
+            await getArtists(text);
+            // console.log('ini input value berisi di search', inputValue)
+        }
+        else {
+            setTrack('');
+            // console.log('ini input value kosong di search', inputValue)
+        }
+        // console.log('ini input value di search', inputValue)
     }
+
+    const trackSong = tracks && tracks.map((data) => {
+        return (
+            <Track
+                image={data.album.images[1].url}
+                title={data.name}
+                artist={data.album.artists[0].name}
+                uri={data.uri}
+                savetUri={getUri}
+                isUriExist={isIdExist}
+                key={data.uri}
+            />
+        )
+    });
 
     const createPlaylist = async (title, description) => {
         try {
@@ -125,22 +155,12 @@ function CreatePlaylist() {
             await createPlaylist(titleValue, descriptionValue);
             window.alert(`successfully create ${form.title} playlist `)
             setForm({ ...form, title: '', description: '' })
+            setIsIdExist([])
+            setTrack('');
+            setSearchText('')
+            // window.location.reload();
         }
     }
-
-    const trackSong = tracks.map((data) => {
-        return (
-            <Track
-                image={data.album.images[1].url}
-                title={data.name}
-                artist={data.album.artists[0].name}
-                uri={data.uri}
-                savetUri={getUri}
-                isUriExist={isIdExist}
-                key={data.uri}
-            />
-        )
-    });
 
     const handleTitle = (e) => {
         const { name, value } = e.target
@@ -163,7 +183,7 @@ function CreatePlaylist() {
             />
             <div className='search-container'>
                 <form onSubmit={(event) => { handelSearchTrack(event) }}>
-                    <input type="text" />
+                    <input type="text" onChange={(e) => { handleSearchOnChange(e) }} value={searchText} />
                     <Button className='search-btn' size="small" type='submit'>Search</Button>
 
                 </form>
