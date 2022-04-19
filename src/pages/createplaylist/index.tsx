@@ -5,6 +5,8 @@ import Playlist from "../../components/playlist/index";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 import Button from "@mui/material/Button";
+import { useSelector, useDispatch } from "react-redux";
+import { tokenAuth } from "./slice";
 
 export interface URL {
   [key: string]: string;
@@ -20,6 +22,8 @@ function CreatePlaylist() {
   });
   const [searchText, setSearchText] = useState("");
   const history = useHistory();
+  const dispatch = useDispatch();
+  const currentToken = useSelector((state: any) => state.token.value);
 
   useEffect(() => {
     const hash = window.location.hash.substring(1);
@@ -31,6 +35,7 @@ function CreatePlaylist() {
 
     const tokenContent = params.access_token;
     setToken(tokenContent);
+    dispatch(tokenAuth(tokenContent));
     // sessionStorage.setItem("token", JSON.stringify(tokenContent))
 
     history.push("/create-playlist");
@@ -46,7 +51,7 @@ function CreatePlaylist() {
       url: `https://api.spotify.com/v1/playlists/${playlist}/tracks`,
       headers: {
         "Content-Type": "application/json",
-        Authorization: "Bearer " + token,
+        Authorization: "Bearer " + currentToken,
       },
       data: {
         uris: [...id],
@@ -70,7 +75,7 @@ function CreatePlaylist() {
       const options = {
         headers: {
           "Content-Type": "application/json",
-          Authorization: "Bearer " + token,
+          Authorization: "Bearer " + currentToken,
         },
       };
       const res = await axios.get(
@@ -120,7 +125,7 @@ function CreatePlaylist() {
       const userOptions = {
         headers: {
           "Content-Type": "application/json",
-          Authorization: "Bearer " + token,
+          Authorization: "Bearer " + currentToken,
         },
       };
       const userRes = await axios.get(
@@ -133,7 +138,7 @@ function CreatePlaylist() {
         url: `https://api.spotify.com/v1/users/${userId}/playlists`,
         headers: {
           "Content-Type": "application/json",
-          Authorization: "Bearer " + token,
+          Authorization: "Bearer " + currentToken,
         },
         data: {
           name: title,
