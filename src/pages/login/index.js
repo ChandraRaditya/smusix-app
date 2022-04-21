@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
-import { useState, useEffect } from "react";
-import { useHistory } from "react-router-dom";
+import { useState } from "react";
 
 function Login() {
   const [isLogin, setIsLogin] = useState(() => {
@@ -9,13 +8,6 @@ function Login() {
     return saved ? initialValue : false;
   });
   const currentLogin = JSON.parse(sessionStorage.getItem("isLogin"));
-  const history = useHistory();
-
-  useEffect(() => {
-    // if (isLogin === false) {
-    //     history.push("/");
-    // }
-  }, [isLogin]);
 
   const AUTHORIZE = "https://accounts.spotify.com/authorize";
   const redirect_uri = "http://localhost:3000/create-playlist";
@@ -29,18 +21,11 @@ function Login() {
     window.location = url;
   };
 
-  //   const logOut = () => {
-  //     window.location = "http://accounts.spotify.com/logout";
-  //     // window.location = 'http://localhost:3000/'
-  //   };
-
   const handleLoginButton = () => {
     if (currentLogin) {
       setIsLogin(false);
       sessionStorage.setItem("isLogin", JSON.stringify(false));
       window.location.reload();
-      //   logOut();
-      // history.push("/");
     } else {
       setIsLogin(true);
       sessionStorage.setItem("isLogin", JSON.stringify(true));

@@ -6,7 +6,7 @@ import {
   Redirect,
 } from "react-router-dom";
 import Login from "./pages/login/index";
-import CreatePlaylist from "./pages/createplaylist/index.tsx";
+import CreatePlaylist from "./pages/createplaylist";
 
 function AppRouter() {
   const currentLogin = JSON.parse(sessionStorage.getItem("isLogin"));

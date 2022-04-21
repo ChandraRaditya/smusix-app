@@ -1,7 +1,7 @@
 // import data from './data/data';
 import { useState, useEffect } from "react";
-import Track from "../../components/track/index.tsx";
-import Playlist from "../../components/playlist/index";
+import Track from "../../components/track";
+import Playlist from "../../components/playlist";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 import Button from "@mui/material/Button";
@@ -15,7 +15,7 @@ export interface URL {
 function CreatePlaylist() {
   const [token, setToken] = useState("");
   const [tracks, setTracks] = useState([]);
-  const [isIdExist, setIsIdExist] = useState([]);
+  const [isIdExist, setIsIdExist] = useState<string[]>([]);
   const [form, setForm] = useState({
     title: "",
     description: "",
@@ -36,16 +36,14 @@ function CreatePlaylist() {
     const tokenContent = params.access_token;
     setToken(tokenContent);
     dispatch(tokenAuth(tokenContent));
-    // sessionStorage.setItem("token", JSON.stringify(tokenContent))
-
     history.push("/create-playlist");
   }, []);
 
-  const handleSearchOnChange = (event) => {
+  const handleSearchOnChange = (event: any) => {
     setSearchText(event.target.value);
   };
 
-  const addTrack = async (id, playlist) => {
+  const addTrack = async (id: any, playlist: string) => {
     const res = await axios({
       method: "post",
       url: `https://api.spotify.com/v1/playlists/${playlist}/tracks`,
@@ -62,7 +60,7 @@ function CreatePlaylist() {
     return res;
   };
 
-  const getUri = (uri, btnSelect) => {
+  const getUri = (uri: any, btnSelect: any) => {
     if (btnSelect === true) {
       setIsIdExist((isIdExist) => [...isIdExist, uri]);
     } else {
@@ -89,7 +87,7 @@ function CreatePlaylist() {
     }
   };
 
-  const handelSearchTrack = async (a) => {
+  const handelSearchTrack = async (a: any) => {
     a.preventDefault();
     // const inputValue = a.target[0].value;
     const inputValue = searchText;
@@ -106,7 +104,7 @@ function CreatePlaylist() {
 
   const trackSong =
     tracks &&
-    tracks.map((data) => {
+    tracks.map((data: any) => {
       return (
         <Track
           image={data.album.images[1].url}
@@ -154,7 +152,7 @@ function CreatePlaylist() {
     }
   };
 
-  const handleCreatePlaylist = async (a) => {
+  const handleCreatePlaylist = async (a: any) => {
     a.preventDefault();
     const titleValue = a.target[0].value;
     const descriptionValue = a.target[1].value;
@@ -171,12 +169,12 @@ function CreatePlaylist() {
     }
   };
 
-  const handleTitle = (event) => {
+  const handleTitle = (event: any) => {
     const { name, value } = event.target;
     setForm({ ...form, [name]: value });
   };
 
-  const handleDescription = (event) => {
+  const handleDescription = (event: any) => {
     const { name, value } = event.target;
     setForm({ ...form, [name]: value });
   };
