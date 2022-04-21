@@ -1,6 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
-import tokenReducer from "./pages/createplaylist/slice";
-import loginReducer from "./pages/login/slice";
+import tokenReducer from "./tokenSlice";
+import loginReducer from "./loginSlice";
 
 export default configureStore({
   reducer: {

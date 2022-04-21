@@ -1,12 +1,11 @@
-import React from "react";
 import {
   BrowserRouter as Router,
   Switch,
   Route,
   Redirect,
 } from "react-router-dom";
-import Login from "./pages/login/index";
-import CreatePlaylist from "./pages/createplaylist";
+import Login from "../pages/login/index";
+import Home from "../pages/home";
 
 function AppRouter() {
   const currentLogin = JSON.parse(sessionStorage.getItem("isLogin"));
@@ -19,7 +18,7 @@ function AppRouter() {
         <Switch>
           <Route path="/create-playlist">
             {currentLogin ? (
-              <CreatePlaylist />
+              <Home />
             ) : (
               <Redirect exact from="/create-playlist" to="/" />
             )}

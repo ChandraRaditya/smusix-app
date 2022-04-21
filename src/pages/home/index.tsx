@@ -6,13 +6,13 @@ import axios from "axios";
 import { useHistory } from "react-router-dom";
 import Button from "@mui/material/Button";
 import { useSelector, useDispatch } from "react-redux";
-import { tokenAuth } from "./slice";
+import { tokenAuth } from "../../redux/tokenSlice";
 
 export interface URL {
   [key: string]: string;
 }
 
-function CreatePlaylist() {
+function Home() {
   const [token, setToken] = useState("");
   const [tracks, setTracks] = useState([]);
   const [isIdExist, setIsIdExist] = useState<string[]>([]);
@@ -216,4 +216,4 @@ function CreatePlaylist() {
   );
 }
 
-export default CreatePlaylist;
+export default Home;
