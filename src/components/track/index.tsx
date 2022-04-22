@@ -13,13 +13,13 @@ function Track({ image, title, artist, uri, savedUri, isUriExist }: props) {
   const [isSelected, setIsSelected] = useState(false);
 
   useEffect(() => {
-    const checkedUri = isUriExist?.find((uris) => uris === uri);
+    const checkedUri = isUriExist?.find((uris) => uris === uri); // eslint-disable-line
     if (checkedUri) {
       setIsSelected(true);
     } else {
       setIsSelected(false);
     }
-  }, [uri]);
+  }, [uri]); // eslint-disable-line
 
   const handleSelectedButton = () => {
     if (isSelected) {

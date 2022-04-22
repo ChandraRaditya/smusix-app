@@ -15,15 +15,6 @@ function Login() {
   };
 
   const handleLoginButton = () => {
-    // if (currentLogin) {
-    //   setIsLogin(false);
-    //   sessionStorage.setItem("isLogin", JSON.stringify(false));
-    //   window.location.reload();
-    // } else {
-    //   setIsLogin(true);
-    //   sessionStorage.setItem("isLogin", JSON.stringify(true));
-    //   requestAuthorization();
-    // }
     sessionStorage.setItem("isLogin", JSON.stringify(true));
     requestAuthorization();
   };

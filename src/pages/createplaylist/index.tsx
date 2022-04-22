@@ -1,4 +1,3 @@
-// import data from './data/data';
 import { useState, useEffect } from "react";
 import Track from "../../components/track";
 import Playlist from "../../components/playlist";
@@ -14,7 +13,6 @@ export interface URL {
 }
 
 function CreatePlaylist() {
-  const [token, setToken] = useState("");
   const [tracks, setTracks] = useState([]);
   const [isIdExist, setIsIdExist] = useState<string[]>([]);
   const [form, setForm] = useState({
@@ -29,16 +27,16 @@ function CreatePlaylist() {
   useEffect(() => {
     const hash = window.location.hash.substring(1);
     const params: URL = {};
+    // eslint-disable-next-line
     hash.split("&").map((hk) => {
       let temp = hk.split("=");
       params[temp[0]] = temp[1];
     });
 
     const tokenContent = params.access_token;
-    setToken(tokenContent);
     dispatch(tokenAuth(tokenContent));
     history.push("/create-playlist");
-  }, []);
+  }, []); // eslint-disable-line
 
   const handleSearchOnChange = (event: any) => {
     setSearchText(event.target.value);
@@ -90,17 +88,13 @@ function CreatePlaylist() {
 
   const handelSearchTrack = async (a: any) => {
     a.preventDefault();
-    // const inputValue = a.target[0].value;
     const inputValue = searchText;
     const text = inputValue.toLowerCase();
     if (text.length > 1) {
       await getSearch(text);
-      // console.log('ini input value berisi di search', inputValue)
     } else {
       setTracks([]);
-      // console.log('ini input value kosong di search', inputValue)
     }
-    // console.log('ini input value di search', inputValue)
   };
 
   const trackSong =
@@ -166,7 +160,6 @@ function CreatePlaylist() {
       setIsIdExist([]);
       setTracks([]);
       setSearchText("");
-      // window.location.reload();
     }
   };
 

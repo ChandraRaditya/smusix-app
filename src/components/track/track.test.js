@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import Track from "./index";
 
-test("test track rendered", () => {
+test("track rendered", () => {
   render(<Track />);
   const image = screen.getByRole("img", { name: "album-image" });
   const trackTitle = screen.getByLabelText("track-title");
