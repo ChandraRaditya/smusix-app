@@ -1,6 +1,6 @@
 // import data from './data/data';
 import { useState, useEffect } from "react";
-import Track from "../../components/track";
+import Track from "../../components/trackCard";
 import Playlist from "../../components/playlist";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
@@ -38,7 +38,7 @@ function Home() {
     const tokenContent = url.access_token;
     setToken(tokenContent);
     dispatch(tokenAuth(tokenContent));
-    history.push("/create-playlist");
+    history.push("/home");
   }, []);
 
   const handleSearchOnChange = (event: any) => {

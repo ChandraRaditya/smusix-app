@@ -10,8 +10,8 @@ function App() {
   return (
     <Provider store={store}>
       <div className="App">
-        {/* <AppRouter /> */}
-        <Dev />
+        <AppRouter />
+        {/* <Dev /> */}
       </div>
     </Provider>
   );
