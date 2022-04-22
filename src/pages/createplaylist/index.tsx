@@ -7,6 +7,7 @@ import { useHistory } from "react-router-dom";
 import Button from "@mui/material/Button";
 import { useSelector, useDispatch } from "react-redux";
 import { tokenAuth } from "./slice";
+import { Link } from "react-router-dom";
 
 export interface URL {
   [key: string]: string;
@@ -179,8 +180,22 @@ function CreatePlaylist() {
     setForm({ ...form, [name]: value });
   };
 
+  const Logout = () => {
+    sessionStorage.setItem("isLogin", JSON.stringify(false));
+  };
+
   return (
     <div className="App">
+      <Link to="/">
+        <button
+          onClick={() => {
+            Logout();
+          }}
+        >
+          Logout
+        </button>
+      </Link>
+      <hr />
       <Playlist
         getPlaylist={handleCreatePlaylist}
         handleTitle={handleTitle}

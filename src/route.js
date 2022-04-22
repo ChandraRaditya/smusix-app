@@ -14,8 +14,6 @@ function AppRouter() {
   return (
     <Router>
       <div>
-        <Login />
-        <hr />
         <Switch>
           <Route path="/create-playlist">
             {currentLogin ? (
@@ -25,7 +23,7 @@ function AppRouter() {
             )}
           </Route>
           <Route path="/">
-            <div>You are in login page</div>
+            <Login />
           </Route>
         </Switch>
       </div>

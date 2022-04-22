@@ -1,0 +1,35 @@
+.login-background {
+  background-image: url(../../assets/background.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.title-background {
+  width: 458px;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 60px;
+  line-height: 60px;
+  text-align: center;
+}
+
+.title-first-word {
+  color: #417d7a;
+}
+
+.button-login {
+  height: 50px;
+  margin-top: 10px;
+  width: 122px;
+  border-radius: 51px;
+  font-weight: 800;
+  font-size: 17px;
+  line-height: 20px;
+  text-align: center;
+}
