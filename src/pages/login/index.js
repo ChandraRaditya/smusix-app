@@ -3,7 +3,7 @@ import "./index.css";
 
 function Login() {
   const AUTHORIZE = "https://accounts.spotify.com/authorize";
-  const redirect_uri = "http://localhost:3000/create-playlist";
+  const redirect_uri = "https://smusix-app.vercel.app/create-playlist";
   const client_id = process.env.REACT_APP_CLIENT_ID;
   const requestAuthorization = () => {
     let url = AUTHORIZE;

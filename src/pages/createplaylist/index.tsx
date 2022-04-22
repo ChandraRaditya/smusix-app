@@ -215,7 +215,7 @@ function CreatePlaylist() {
         </form>
       </div>
       <div className="tracks">
-        <h2>New Release</h2>
+        <h2>Songs</h2>
         <div className="tracks-container" id="track-container">
           {trackSong}
         </div>

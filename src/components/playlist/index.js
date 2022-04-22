@@ -10,9 +10,7 @@ function Playlist(props) {
             id="title-input"
             name="title"
             aria-label="title"
-            onChange={(e) => {
-              props.handleTitle(e);
-            }}
+            onChange={props.handleTitle}
             value={props.title}
           />
         </div>
@@ -24,9 +22,7 @@ function Playlist(props) {
             aria-label="description"
             cols="30"
             rows="10"
-            onChange={(e) => {
-              props.handleDescription(e);
-            }}
+            onChange={props.handleDescription}
             value={props.description}
           ></textarea>
         </div>
