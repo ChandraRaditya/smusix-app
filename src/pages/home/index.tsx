@@ -7,10 +7,11 @@ import { useHistory } from "react-router-dom";
 import Button from "@mui/material/Button";
 import { useSelector, useDispatch } from "react-redux";
 import { tokenAuth } from "../../redux/tokenSlice";
+import { getUrl } from "../../libs/helper";
 
-export interface URL {
-  [key: string]: string;
-}
+// export interface URL {
+//   access_token?: string;
+// }
 
 function Home() {
   const [token, setToken] = useState("");
@@ -24,16 +25,17 @@ function Home() {
   const history = useHistory();
   const dispatch = useDispatch();
   const currentToken = useSelector((state: any) => state.token.value);
+  const url: any = getUrl();
 
   useEffect(() => {
-    const hash = window.location.hash.substring(1);
-    const params: URL = {};
-    hash.split("&").map((hk) => {
-      let temp = hk.split("=");
-      params[temp[0]] = temp[1];
-    });
+    // const hash = window.location.hash.substring(1);
+    // const params: URL = {};
+    // hash.split("&").map((hk) => {
+    //   let temp = hk.split("=");
+    //   params[temp[0]] = temp[1];
+    // });
 
-    const tokenContent = params.access_token;
+    const tokenContent = url.access_token;
     setToken(tokenContent);
     dispatch(tokenAuth(tokenContent));
     history.push("/create-playlist");

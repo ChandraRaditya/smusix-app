@@ -1,14 +1,18 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;500;600;700;800&display=swap");
+
 * {
   box-sizing: border-box;
-  font-family: 'Montserrat';
+  font-family: "Montserrat";
+  margin: 0;
 }
 
 body {
-  background-color: #DBDBDB;
+  background-color: #eeeeee;
+  height: 100%;
 }
 
 .App {
-  text-align: center;
+  /* text-align: center; */
 }
 
 .App-logo {
@@ -47,13 +51,13 @@ body {
   }
 }
 
-.search-container {
+/* .search-container {
   width: 1080px;
   margin: 0 auto;
   margin-top: 20px;
-}
+} */
 
-.search-container .search-btn {
+/* .search-container .search-btn {
   background-color: green;
   color: white;
   margin-left: 10px;
@@ -71,10 +75,10 @@ body {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-}
+} */
 
-.top {
-  background-color: #C5C0C0;
+/* .top {
+  background-color: #c5c0c0;
   width: 1005px;
   height: 171px;
   padding: 3px 71px;
@@ -113,23 +117,19 @@ form p {
 form button {
   width: 134.75px;
   height: 43px;
-  background: #2E9966;
-  border: 1px solid #0CA47F;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 10px;
   margin-top: 44px;
   font-weight: 600;
   color: white;
-}
+} */
 
-.tracks {
+/* .tracks {
   width: 1080px;
   height: 789px;
   margin: 52px auto 0;
   padding: 5px 46px;
-}
+} */
 
-.tracks-container {
+/* .tracks-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
 }
@@ -167,7 +167,7 @@ form button {
 }
 
 .track-item button {
-  background-color: #2E9966;
+  background-color: #2e9966;
   align-self: center;
   padding: 6px;
   text-align: center;
@@ -195,7 +195,7 @@ form button {
   font-size: 15px;
   line-height: 15px;
   color: #000000;
-}
+} */
 
 .btn-auth {
   display: flex;
